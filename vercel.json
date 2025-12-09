@@ -2,6 +2,17 @@
   "version": 2,
   "rewrites": [
     { "source": "/health", "destination": "/api/health" },
-    { "source": "/contact", "destination": "/api/contact" }
+    { "source": "/contact", "destination": "/api/contact" },
+    { "source": "/imail/send", "destination": "/api/imail/send" },
+    { "source": "/imail/verify", "destination": "/api/imail/verify" },
+    { "source": "/imail/status", "destination": "/api/imail/status" }
+  ],
+  "headers": [
+    {
+      "source": "/imail/(.*)",
+      "headers": [
+        { "key": "X-Powered-By", "value": "JASPER iMail EMV" }
+      ]
+    }
   ]
 }
