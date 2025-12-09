@@ -1,23 +1,7 @@
 {
   "version": 2,
-  "routes": [
-    {
-      "src": "/health",
-      "dest": "/api/health"
-    },
-    {
-      "src": "/contact",
-      "dest": "/api/contact"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "https://jasperfinance.org" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
-      ]
-    }
+  "rewrites": [
+    { "source": "/health", "destination": "/api/health" },
+    { "source": "/contact", "destination": "/api/contact" }
   ]
 }
