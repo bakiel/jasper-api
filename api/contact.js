@@ -65,10 +65,7 @@ function getAdminEmailHTML(data, reference) {
 <table width="600" cellpadding="0" cellspacing="0" style="background:#0B1221;border-radius:16px;border:1px solid rgba(44,138,91,0.2);">
 <tr><td style="background:linear-gradient(135deg,#0B1221,#132337);padding:32px 40px;border-bottom:1px solid rgba(44,138,91,0.3);">
 <table width="100%"><tr>
-<td><table cellpadding="0" cellspacing="0"><tr>
-<td style="vertical-align:middle;"><img src="https://jasper-api.vercel.app/icon.png" alt="JASPER" width="40" style="max-width:40px;height:auto;" /></td>
-<td style="vertical-align:middle;padding-left:12px;"><h1 style="color:#2C8A5B;font-size:22px;margin:0;font-weight:700;">JASPER</h1><p style="color:#64748B;font-size:10px;margin:2px 0 0;letter-spacing:1px;">FINANCIAL ARCHITECTURE</p></td>
-</tr></table></td>
+<td><img src="https://jasper-api.vercel.app/logo.png" alt="JASPER" width="160" style="max-width:160px;height:auto;" /></td>
 <td align="right"><span style="background:rgba(44,138,91,0.15);color:#2C8A5B;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:600;">NEW LEAD</span></td>
 </tr></table>
 </td></tr>
@@ -111,9 +108,7 @@ function getClientEmailHTML(data) {
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="background:#0B1221;border-radius:16px;border:1px solid rgba(44,138,91,0.2);">
 <tr><td style="background:linear-gradient(135deg,#0B1221,#132337);padding:40px;text-align:center;border-bottom:1px solid rgba(44,138,91,0.3);">
-<img src="https://jasper-api.vercel.app/icon.png" alt="JASPER" width="60" style="max-width:60px;height:auto;margin-bottom:12px;" />
-<h1 style="color:#2C8A5B;font-size:28px;margin:0;font-weight:700;">JASPER</h1>
-<p style="color:#64748B;font-size:12px;margin:8px 0 0;letter-spacing:2px;">FINANCIAL ARCHITECTURE</p>
+<img src="https://jasper-api.vercel.app/logo.png" alt="JASPER Financial Architecture" width="220" style="max-width:220px;height:auto;" />
 </td></tr>
 <tr><td style="padding:40px;">
 <h2 style="color:#F8FAFC;font-size:22px;margin:0 0 16px;">Thank you, ${data.name}</h2>
