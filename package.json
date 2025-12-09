@@ -1,0 +1,13 @@
+{
+  "name": "jasper-api",
+  "version": "1.0.0",
+  "description": "JASPER Financial Architecture Contact API",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  }
+}
