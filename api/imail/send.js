@@ -160,8 +160,8 @@ function getTemplate(templateName, data = {}) {
   return templates[templateName] || { html: '', text: '' };
 }
 
-// Logo URL
-const LOGO_URL = 'https://jasperfinance.org/logo.png';
+// Logo URL - hosted on API domain
+const LOGO_URL = 'https://jasper-api.vercel.app/logo.png';
 
 function getWelcomeTemplate(data) {
   return `

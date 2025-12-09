@@ -65,7 +65,7 @@ function getAdminEmailHTML(data, reference) {
 <table width="600" cellpadding="0" cellspacing="0" style="background:#0B1221;border-radius:16px;border:1px solid rgba(44,138,91,0.2);">
 <tr><td style="background:linear-gradient(135deg,#0B1221,#132337);padding:32px 40px;border-bottom:1px solid rgba(44,138,91,0.3);">
 <table width="100%"><tr>
-<td><img src="https://jasperfinance.org/logo.png" alt="JASPER" width="140" style="max-width:140px;height:auto;" /></td>
+<td><img src="https://jasper-api.vercel.app/logo.png" alt="JASPER" width="140" style="max-width:140px;height:auto;" /></td>
 <td align="right"><span style="background:rgba(44,138,91,0.15);color:#2C8A5B;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:600;">NEW LEAD</span></td>
 </tr></table>
 </td></tr>
@@ -108,7 +108,7 @@ function getClientEmailHTML(data) {
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="background:#0B1221;border-radius:16px;border:1px solid rgba(44,138,91,0.2);">
 <tr><td style="background:linear-gradient(135deg,#0B1221,#132337);padding:40px;text-align:center;border-bottom:1px solid rgba(44,138,91,0.3);">
-<img src="https://jasperfinance.org/logo.png" alt="JASPER" width="180" style="max-width:180px;height:auto;margin-bottom:16px;" />
+<img src="https://jasper-api.vercel.app/logo.png" alt="JASPER" width="180" style="max-width:180px;height:auto;margin-bottom:16px;" />
 <p style="color:#64748B;font-size:12px;margin:0;letter-spacing:2px;">FINANCIAL ARCHITECTURE</p>
 </td></tr>
 <tr><td style="padding:40px;">
