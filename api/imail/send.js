@@ -160,8 +160,9 @@ function getTemplate(templateName, data = {}) {
   return templates[templateName] || { html: '', text: '' };
 }
 
-// Logo URL - hosted on API domain
+// Logo URLs - hosted on API domain
 const LOGO_URL = 'https://jasper-api.vercel.app/logo.png';
+const ICON_URL = 'https://jasper-api.vercel.app/icon.png';
 
 function getWelcomeTemplate(data) {
   return `
@@ -173,8 +174,9 @@ function getWelcomeTemplate(data) {
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="background:#0B1221;border-radius:16px;border:1px solid rgba(44,138,91,0.2);">
 <tr><td style="background:linear-gradient(135deg,#0B1221,#132337);padding:40px;text-align:center;border-bottom:1px solid rgba(44,138,91,0.3);">
-<img src="${LOGO_URL}" alt="JASPER" width="180" style="max-width:180px;height:auto;margin-bottom:16px;" />
-<p style="color:#64748B;font-size:12px;margin:0;letter-spacing:2px;">FINANCIAL ARCHITECTURE</p>
+<img src="${ICON_URL}" alt="JASPER" width="60" style="max-width:60px;height:auto;margin-bottom:12px;" />
+<h1 style="color:#2C8A5B;font-size:28px;margin:0;font-weight:700;">JASPER</h1>
+<p style="color:#64748B;font-size:12px;margin:8px 0 0;letter-spacing:2px;">FINANCIAL ARCHITECTURE</p>
 </td></tr>
 <tr><td style="padding:40px;">
 <h2 style="color:#F8FAFC;font-size:22px;margin:0 0 16px;">Welcome, ${data.name || 'Valued Client'}</h2>
@@ -206,8 +208,9 @@ function getNotificationTemplate(data) {
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="background:#0B1221;border-radius:16px;border:1px solid rgba(44,138,91,0.2);">
 <tr><td style="background:linear-gradient(135deg,#0B1221,#132337);padding:32px 40px;text-align:center;border-bottom:1px solid rgba(44,138,91,0.3);">
-<img src="${LOGO_URL}" alt="JASPER" width="160" style="max-width:160px;height:auto;margin-bottom:12px;" />
-<p style="color:#64748B;font-size:12px;margin:0;letter-spacing:1px;">FINANCIAL ARCHITECTURE</p>
+<img src="${ICON_URL}" alt="JASPER" width="50" style="max-width:50px;height:auto;margin-bottom:10px;" />
+<h1 style="color:#2C8A5B;font-size:24px;margin:0;font-weight:700;">JASPER</h1>
+<p style="color:#64748B;font-size:11px;margin:6px 0 0;letter-spacing:1px;">FINANCIAL ARCHITECTURE</p>
 </td></tr>
 <tr><td style="padding:40px;">
 <div style="background:rgba(44,138,91,0.1);border-left:4px solid #2C8A5B;padding:20px;border-radius:0 8px 8px 0;margin-bottom:24px;">
@@ -235,8 +238,9 @@ function getVerificationTemplate(data) {
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="background:#0B1221;border-radius:16px;border:1px solid rgba(44,138,91,0.2);">
 <tr><td style="background:linear-gradient(135deg,#0B1221,#132337);padding:32px 40px;text-align:center;border-bottom:1px solid rgba(44,138,91,0.3);">
-<img src="${LOGO_URL}" alt="JASPER" width="160" style="max-width:160px;height:auto;margin-bottom:12px;" />
-<p style="color:#64748B;font-size:12px;margin:0;letter-spacing:1px;">EMAIL VERIFICATION</p>
+<img src="${ICON_URL}" alt="JASPER" width="50" style="max-width:50px;height:auto;margin-bottom:10px;" />
+<h1 style="color:#2C8A5B;font-size:24px;margin:0;font-weight:700;">JASPER</h1>
+<p style="color:#64748B;font-size:11px;margin:6px 0 0;letter-spacing:1px;">EMAIL VERIFICATION</p>
 </td></tr>
 <tr><td style="padding:40px;text-align:center;">
 <p style="color:#94A3B8;font-size:15px;margin:0 0 24px;">Your verification code is:</p>
@@ -264,7 +268,10 @@ function getInvoiceTemplate(data) {
 <table width="600" cellpadding="0" cellspacing="0" style="background:#0B1221;border-radius:16px;border:1px solid rgba(44,138,91,0.2);">
 <tr><td style="background:linear-gradient(135deg,#0B1221,#132337);padding:32px 40px;border-bottom:1px solid rgba(44,138,91,0.3);">
 <table width="100%"><tr>
-<td><img src="${LOGO_URL}" alt="JASPER" width="140" style="max-width:140px;height:auto;" /></td>
+<td><table cellpadding="0" cellspacing="0"><tr>
+<td style="vertical-align:middle;"><img src="${ICON_URL}" alt="JASPER" width="40" style="max-width:40px;height:auto;" /></td>
+<td style="vertical-align:middle;padding-left:12px;"><h1 style="color:#2C8A5B;font-size:22px;margin:0;font-weight:700;">JASPER</h1><p style="color:#64748B;font-size:10px;margin:2px 0 0;letter-spacing:1px;">FINANCIAL ARCHITECTURE</p></td>
+</tr></table></td>
 <td align="right"><span style="background:rgba(44,138,91,0.15);color:#2C8A5B;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:600;">INVOICE</span></td>
 </tr></table>
 </td></tr>
