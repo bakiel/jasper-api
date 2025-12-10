@@ -5,13 +5,24 @@
     { "source": "/contact", "destination": "/api/contact" },
     { "source": "/imail/send", "destination": "/api/imail/send" },
     { "source": "/imail/verify", "destination": "/api/imail/verify" },
-    { "source": "/imail/status", "destination": "/api/imail/status" }
+    { "source": "/imail/status", "destination": "/api/imail/status" },
+    { "source": "/api/v1/admin/auth/google", "destination": "/api/admin/auth/google" },
+    { "source": "/api/v1/admin/auth/google/client-id", "destination": "/api/admin/auth/client-id" },
+    { "source": "/api/v1/admin/auth/me", "destination": "/api/admin/auth/me" }
   ],
   "headers": [
     {
       "source": "/imail/(.*)",
       "headers": [
         { "key": "X-Powered-By", "value": "JASPER iMail EMV" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
       ]
     }
   ]
