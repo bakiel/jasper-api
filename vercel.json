@@ -3,10 +3,10 @@
   "rewrites": [
     { "source": "/health", "destination": "/api/health" },
     { "source": "/contact", "destination": "/api/contact" },
-    { "source": "/auth/:path*", "destination": "/api/auth" },
+    { "source": "/auth/(.*)", "destination": "/api/auth/$1" },
     { "source": "/imail/send", "destination": "/api/imail/send" },
     { "source": "/imail/verify", "destination": "/api/imail/verify" },
-    { "source": "/api/v1/admin/auth/:path*", "destination": "/api/admin/auth" },
+    { "source": "/api/v1/admin/auth/(.*)", "destination": "/api/admin/auth/$1" },
     { "source": "/api/v1/notifications", "destination": "/api/notifications" },
     { "source": "/api/v1/webhooks/contact-form", "destination": "/api/webhooks/contact-form" },
     { "source": "/api/v1/crm/leads", "destination": "/api/crm/leads" },
