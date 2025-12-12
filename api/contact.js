@@ -198,10 +198,12 @@ export default async function handler(req, res) {
     const reference = `JSP-${Date.now().toString(36).toUpperCase()}`;
     const transporter = getTransporter();
 
-    // Create CRM record in JASPER Portal backend
+    // Create CRM record in JASPER CRM (VPS)
     let crmCreated = false;
+    let crmLeadId = null;
     try {
-      const crmApiUrl = process.env.CRM_API_URL || 'https://api.jasperfinance.org';
+      // VPS CRM running on port 8001
+      const crmApiUrl = process.env.CRM_API_URL || 'http://72.61.201.237:8001';
       const crmResponse = await fetch(`${crmApiUrl}/api/v1/webhooks/contact-form`, {
         method: 'POST',
         headers: {
@@ -223,10 +225,13 @@ export default async function handler(req, res) {
       });
 
       if (crmResponse.ok) {
+        const crmResult = await crmResponse.json();
         crmCreated = true;
-        console.log(`CRM record created for ${data.email}`);
+        crmLeadId = crmResult.lead_id;
+        console.log(`CRM lead created: ${crmLeadId} for ${data.email}`);
       } else {
-        console.warn(`CRM creation failed: ${crmResponse.status}`);
+        const errorText = await crmResponse.text();
+        console.warn(`CRM creation failed: ${crmResponse.status} - ${errorText}`);
       }
     } catch (crmError) {
       console.error('CRM integration error:', crmError.message);
@@ -262,7 +267,8 @@ export default async function handler(req, res) {
       success: true,
       message: "Thank you for your enquiry. We'll be in touch within 24 hours.",
       reference,
-      crm_synced: crmCreated
+      crm_synced: crmCreated,
+      lead_id: crmLeadId
     });
 
   } catch (error) {

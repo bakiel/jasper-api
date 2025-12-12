@@ -3,12 +3,22 @@
   "rewrites": [
     { "source": "/health", "destination": "/api/health" },
     { "source": "/contact", "destination": "/api/contact" },
+    { "source": "/auth/google", "destination": "/api/auth/google" },
+    { "source": "/auth/callback", "destination": "/api/auth/callback" },
+    { "source": "/auth/me", "destination": "/api/auth/me" },
+    { "source": "/auth/logout", "destination": "/api/auth/logout" },
     { "source": "/imail/send", "destination": "/api/imail/send" },
     { "source": "/imail/verify", "destination": "/api/imail/verify" },
-    { "source": "/imail/status", "destination": "/api/imail/status" },
+    { "source": "/api/v1/admin/auth/login", "destination": "/api/admin/auth/login" },
     { "source": "/api/v1/admin/auth/google", "destination": "/api/admin/auth/google" },
     { "source": "/api/v1/admin/auth/google/client-id", "destination": "/api/admin/auth/client-id" },
-    { "source": "/api/v1/admin/auth/me", "destination": "/api/admin/auth/me" }
+    { "source": "/api/v1/admin/auth/linkedin", "destination": "/api/admin/auth/google" },
+    { "source": "/api/v1/admin/auth/linkedin/client-id", "destination": "/api/admin/auth/client-id?provider=linkedin" },
+    { "source": "/api/v1/admin/auth/me", "destination": "/api/admin/auth/me" },
+    { "source": "/api/v1/notifications", "destination": "/api/notifications" },
+    { "source": "/api/v1/webhooks/contact-form", "destination": "/api/webhooks/contact-form" },
+    { "source": "/api/v1/crm/leads", "destination": "/api/crm/leads" },
+    { "source": "/api/v1/crm/intake", "destination": "/api/crm/intake" }
   ],
   "headers": [
     {

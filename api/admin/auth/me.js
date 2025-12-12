@@ -26,24 +26,32 @@ export default async function handler(req, res) {
 
   try {
     const authHeader = req.headers.authorization;
+    console.log('Auth /me called, authHeader present:', !!authHeader);
 
     if (!authHeader) {
+      console.log('No auth header');
       return res.status(401).json({ detail: 'Not authenticated' });
     }
 
     const parts = authHeader.split(' ');
     if (parts.length !== 2 || parts[0].toLowerCase() !== 'bearer') {
+      console.log('Invalid auth header format');
       return res.status(401).json({ detail: 'Invalid authorization header' });
     }
 
     const token = parts[1];
+    console.log('Token length:', token?.length, 'Token prefix:', token?.substring(0, 20) + '...');
 
     if (!SECRET_KEY) {
+      console.log('SECRET_KEY not configured');
       return res.status(503).json({ detail: 'Auth not configured' });
     }
 
+    console.log('SECRET_KEY length:', SECRET_KEY?.length);
+
     // Verify JWT
     const { payload } = await jwtVerify(token, getSecretKey());
+    console.log('Token verified successfully, payload.type:', payload.type);
 
     if (payload.type !== 'admin') {
       return res.status(401).json({ detail: 'Invalid token type' });
@@ -63,10 +71,14 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
+    console.error('Auth error code:', error.code, 'message:', error.message);
     if (error.code === 'ERR_JWT_EXPIRED') {
       return res.status(401).json({ detail: 'Token expired' });
     }
-    console.error('Auth error:', error);
-    return res.status(401).json({ detail: 'Invalid token' });
+    if (error.code === 'ERR_JWS_SIGNATURE_VERIFICATION_FAILED') {
+      return res.status(401).json({ detail: 'Token signature verification failed - SECRET_KEY mismatch' });
+    }
+    console.error('Full auth error:', error);
+    return res.status(401).json({ detail: 'Invalid token', error_code: error.code });
   }
 }
