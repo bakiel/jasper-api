@@ -2,9 +2,12 @@
 // Handles: /auth/google, /auth/callback, /auth/me, /auth/logout
 
 export default async function handler(req, res) {
-  // Vercel passes catch-all segments as query.path array
-  const pathSegments = req.query.path || [];
-  const action = Array.isArray(pathSegments) ? pathSegments[0] : pathSegments;
+  // Parse action from URL path or query param
+  const url = new URL(req.url, `http://${req.headers.host}`);
+  const pathParts = url.pathname.split('/').filter(Boolean);
+  // Get the last part after 'auth' (e.g., /auth/google -> google, /api/auth/me -> me)
+  const authIndex = pathParts.findIndex(p => p === 'auth');
+  const action = authIndex >= 0 && pathParts[authIndex + 1] ? pathParts[authIndex + 1] : req.query.action;
 
   // Route to appropriate handler
   if (action === 'google') {
@@ -17,7 +20,7 @@ export default async function handler(req, res) {
     return handleLogout(req, res);
   }
 
-  return res.status(404).json({ error: 'Auth endpoint not found', action, path: pathSegments });
+  return res.status(404).json({ error: 'Auth endpoint not found', action, url: url.pathname });
 }
 
 // ============ Google OAuth Initiation ============

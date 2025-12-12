@@ -63,9 +63,12 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  // Vercel passes catch-all segments as query.path array
-  const pathSegments = req.query.path || [];
-  const action = Array.isArray(pathSegments) ? pathSegments[0] : pathSegments;
+  // Parse action from URL path or query param
+  const url = new URL(req.url, `http://${req.headers.host}`);
+  const pathParts = url.pathname.split('/').filter(Boolean);
+  // Get the last part after 'auth' (e.g., /admin/auth/login -> login)
+  const authIndex = pathParts.findIndex(p => p === 'auth');
+  const action = authIndex >= 0 && pathParts[authIndex + 1] ? pathParts[authIndex + 1] : req.query.action;
 
   // Route to appropriate handler
   if (action === 'login') {
@@ -78,7 +81,7 @@ export default async function handler(req, res) {
     return handleMe(req, res);
   }
 
-  return res.status(404).json({ detail: 'Admin auth endpoint not found', action, path: pathSegments });
+  return res.status(404).json({ detail: 'Admin auth endpoint not found', action, url: url.pathname });
 }
 
 // ============ Email/Password Login ============
