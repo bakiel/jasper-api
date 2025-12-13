@@ -12,7 +12,35 @@
     { "source": "/api/v1/notifications", "destination": "/api/notifications" },
     { "source": "/api/v1/webhooks/contact-form", "destination": "/api/webhooks/contact-form" },
     { "source": "/api/v1/crm/leads", "destination": "/api/crm/leads" },
-    { "source": "/api/v1/crm/intake", "destination": "/api/crm/intake" }
+    { "source": "/api/v1/crm/intake", "destination": "/api/crm/intake" },
+
+    { "source": "/api/v1/admin/auth/google/client-id", "destination": "/api/admin/auth/google-client-id" },
+    { "source": "/api/v1/admin/auth/google", "destination": "/api/admin/auth/google" },
+    { "source": "/api/v1/admin/auth/linkedin/client-id", "destination": "/api/admin/auth/linkedin-client-id" },
+    { "source": "/api/v1/admin/auth/linkedin", "destination": "/api/admin/auth/linkedin" },
+    { "source": "/api/v1/admin/auth/me", "destination": "/api/admin/auth/me" },
+    { "source": "/api/v1/admin/auth/login", "destination": "/api/admin/auth/login" },
+
+    { "source": "/api/admin/clients/list", "destination": "/api/admin/clients/[action]" },
+    { "source": "/api/admin/clients/pending", "destination": "/api/admin/clients/[action]" },
+    { "source": "/api/admin/clients/approve", "destination": "/api/admin/clients/[action]" },
+    { "source": "/api/admin/clients/reject", "destination": "/api/admin/clients/[action]" },
+    { "source": "/api/admin/clients/stats", "destination": "/api/admin/clients/[action]" },
+    { "source": "/api/admin/clients/:id", "destination": "/api/admin/clients/[action]" },
+
+    { "source": "/api/client/auth/google-client-id", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/linkedin-client-id", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/register", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/verify-email", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/resend-code", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/login", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/forgot-password", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/reset-password", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/refresh", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/google", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/linkedin", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/me", "destination": "/api/client/auth/[action]" },
+    { "source": "/api/client/auth/logout", "destination": "/api/client/auth/[action]" }
   ],
   "headers": [
     {
@@ -25,7 +53,7 @@
       "source": "/api/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT, DELETE, OPTIONS" },
         { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
       ]
     }
